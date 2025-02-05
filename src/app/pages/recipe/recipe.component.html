@@ -1,0 +1,60 @@
+<div
+  class="flex flex-col items-center justify-center py-16 min-h-screen px-6 sm:px-8 md:px-12"
+>
+  <button
+    class="self-start mb-6 px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-md"
+    (click)="goBack()"
+  >
+    ← Back
+  </button>
+
+  <div class="w-full max-w-3xl bg-white shadow-md rounded-lg p-6">
+    <img
+      [src]="recipe?.imageUrl"
+      alt="Recipe Image"
+      class="w-full h-64 object-cover rounded-lg"
+    />
+
+    <div
+      class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4"
+    >
+      <h1 class="text-3xl font-semibold">{{ recipe?.title }}</h1>
+
+      <div class="flex space-x-4">
+        <button
+          (click)="toggleFavorite()"
+          class="px-4 py-2 text-blue-900 rounded-md"
+        >
+          <i
+            [class.fa-solid]="recipe?.isFavorite"
+            [class.fa-regular]="!recipe?.isFavorite"
+            class="fa-star text-2xl cursor-pointer text-yellow-500 transition duration-300 ease-in-out"
+          ></i>
+        </button>
+
+        <button
+          (click)="openEditModal()"
+          class="px-4 py-2 bg-gray-600 text-white rounded-md"
+        >
+          Edit
+        </button>
+        <button
+          (click)="deleteRecipe()"
+          class="px-4 py-2 bg-gray-800 text-white rounded-md"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+
+    <p class="mt-4 text-gray-700">{{ recipe?.description }}</p>
+
+    <h3 class="mt-6 text-xl font-semibold">Ingredients:</h3>
+    <ul class="list-disc pl-6 text-gray-600">
+      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient }}</li>
+    </ul>
+
+    <h3 class="mt-6 text-xl font-semibold">Instructions:</h3>
+    <p class="text-gray-700">{{ recipe?.instructions }}</p>
+  </div>
+</div>

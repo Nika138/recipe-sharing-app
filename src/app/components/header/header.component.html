@@ -1,0 +1,101 @@
+<header class="z-20 sticky top-0 w-full py-5 bg-[#323841] left-0">
+  <div
+    class="max-w-screen-xxl mx-auto px-5 flex justify-between md:justify-center items-center lg:space-x-44 xl:space-x-52"
+  >
+    <!-- Nav links -->
+    <div class="hidden md:block">
+      <nav>
+        <ul
+          class="flex justify-between items-center gap-x-8 xl:gap-x-12 font-bold text-[#F6F2EE] text-lg"
+        >
+          <li>
+            <a
+              routerLink="/add-recipe"
+              class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+              >Add Recipe</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/home"
+              class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/favorites"
+              class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+              >Favorites</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Burger icon -->
+  <div
+    class="block md:hidden w-[50px] h-[50px] relative rounded-md hover:bg-[#77726E] duration-300 hover:duration-300 cursor-pointer transition-all mx-1"
+    (click)="toggleMenu()"
+  >
+    <a class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <i class="fa-solid fa-bars text-xl text-[#F6F2EE]"></i>
+    </a>
+  </div>
+</header>
+
+<!-- Burger menu -->
+<div
+  *ngIf="burgerMenu"
+  class="z-20 flex justify-center items-center md:hidden fixed top-0 left-0 w-full bg-[#323841] duration-300 h-screen px-12 py-24"
+>
+  <ul
+    class="flex text-center flex-col justify-between items-center gap-y-12 text-[#F6F2EE]"
+  >
+    <li>
+      <button
+        class="text-xl border-b pb-2 border-[#77726E] duration-300 hover:text-[#77726E] hover:duration-300"
+      >
+        <a
+          routerLink="/add-recipe"
+          class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+        >
+          Add Recipe
+        </a>
+      </button>
+    </li>
+    <li>
+      <button
+        class="text-xl border-b pb-2 border-[#77726E] duration-300 hover:text-[#77726E] hover:duration-300"
+      >
+        <a
+          routerLink="/home"
+          class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+        >
+          Home
+        </a>
+      </button>
+    </li>
+    <li>
+      <button
+        class="text-xl border-b pb-2 border-[#77726E] duration-300 hover:text-[#77726E] hover:duration-300"
+      >
+        <a
+          routerLink="favorites"
+          class="hover:text-[#77726E] duration-300 hover:duration-300 font-sourGummy"
+        >
+          Favorites
+        </a>
+      </button>
+    </li>
+  </ul>
+
+  <!-- Close button -->
+  <a
+    (click)="toggleMenu()"
+    class="cursor-pointer absolute p-[25px] top-2.5 right-5"
+  >
+    <i class="fa-solid text-xl text-[#F6F2EE] fa-times"> </i>
+  </a>
+</div>

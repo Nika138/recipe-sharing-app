@@ -1,0 +1,123 @@
+<mat-dialog-content class="py-4">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">Edit Recipe</h2>
+
+  <form [formGroup]="recipeForm">
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        formControlName="title"
+        placeholder="Enter Recipe Title"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full mb-4 h-[150px]">
+      <mat-label>Description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Recipe Description..."
+        rows="4"
+        maxlength="150"
+        required
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Ingredients</mat-label>
+      <input
+        matInput
+        type="text"
+        placeholder="Add Ingredients"
+        [formControl]="ingredient"
+        (keydown.enter)="$event.preventDefault(); addIngredient()"
+      />
+    </mat-form-field>
+
+    <mat-chip-listbox aria-label="ingredient-tags" class="mt-2">
+      <mat-chip
+        *ngFor="let ingredient of ingredients.controls; let i = index"
+        removable="true"
+      >
+        {{ ingredient.value }}
+        <button
+          type="button"
+          class="ml-2 size-4 text-xs text-white bg-gray-700 rounded-full"
+          (click)="removeIngredient(i)"
+        >
+          X
+        </button>
+      </mat-chip>
+    </mat-chip-listbox>
+
+    <div class="flex justify-end mb-2">
+      <button
+        type="button"
+        class="px-4 py-2 bg-indigo-500 text-white rounded-full"
+        (click)="addIngredient()"
+      >
+        Add
+      </button>
+    </div>
+
+    <mat-form-field appearance="fill" class="w-full mb-4">
+      <mat-label>Instructions</mat-label>
+      <input
+        matInput
+        formControlName="instructions"
+        placeholder="Enter Instructions"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field *ngIf="isUrlSelected" appearance="fill" class="w-full mb-4">
+      <mat-label>Image URL</mat-label>
+      <input
+        matInput
+        formControlName="imageUrl"
+        placeholder="Enter Image URL"
+        type="url"
+      />
+    </mat-form-field>
+
+    <div *ngIf="isFileSelected" class="w-full mb-4">
+      <mat-label>Upload Image</mat-label>
+      <input
+        type="file"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        class="border-gray-300 rounded-md p-2 w-full"
+      />
+    </div>
+
+    <div class="flex justify-between mb-4">
+      <button
+        type="button"
+        class="px-4 py-2 bg-indigo-500 text-white rounded-full"
+        (click)="toggleImageOption('url')"
+      >
+        URL-based
+      </button>
+      <button
+        type="button"
+        class="px-4 py-2 bg-indigo-500 text-white rounded-full"
+        (click)="toggleImageOption('file')"
+      >
+        File Upload
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="mt-4">
+  <button mat-button class="text-gray-600" (click)="onCancel()">Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    class="bg-blue-500 text-white"
+    (click)="onSave()"
+  >
+    Save Changes
+  </button>
+</mat-dialog-actions>

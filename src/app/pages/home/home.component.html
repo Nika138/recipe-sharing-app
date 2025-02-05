@@ -1,0 +1,38 @@
+<div
+  class="flex flex-col items-center justify-start mt-16 min-h-screen bg-[#F4EADE] px-2 sm:px-4 md:px-6 max-w-screen-xxl mx-auto"
+>
+  <h1
+    class="text-6xl sm:text-8xl font-semibold text-center mb-6 text-[#77726E] font-rouge tracking-[1.5rem] w-full border-b border-[#77726E] pb-3"
+  >
+    Recipes
+  </h1>
+
+  <!-- Search Bar -->
+  <div
+    class="w-full max-w-[800px] mb-8 border-b border-[#77726E] pb-2 flex items-center justify-center"
+  >
+    <input
+      type="text"
+      class="w-full max-w-[650px] px-4 py-2 border-2 border-[#77726E] rounded-lg shadow-sm focus:outline-none bg-[#F6F2EE] text-[#77726E] placeholder:text-[#77726E] placeholder:font-sourGummy"
+      placeholder="Search recipes..."
+      [formControl]="search"
+    />
+  </div>
+
+  <!-- Recipes Section -->
+  <div
+    *ngIf="recipes$ | async as recipes"
+    class="w-full max-w-[1400px] mx-auto"
+  >
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+    >
+      <app-recipe-card
+        *ngFor="let recipe of recipes"
+        [recipe]="recipe"
+        class="cursor-pointer px-2 sm:px-0"
+        [routerLink]="['/recipe', recipe.id]"
+      ></app-recipe-card>
+    </div>
+  </div>
+</div>
