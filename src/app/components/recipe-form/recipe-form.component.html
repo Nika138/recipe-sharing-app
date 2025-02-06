@@ -1,0 +1,200 @@
+<!-- Recipe form card -->
+<mat-card
+  class="mx-auto lg:m-0 max-w-lg my-6 p-6 shadow-lg !bg-[#f5ede7] rounded-xl hover:shadow-2xl hover:duration-300 transition-shadow duration-300 !border !border-[#e2c3aa]"
+>
+  <form class="w-full" (ngSubmit)="onSubmit()" [formGroup]="recipeForm">
+    <fieldset class="w-full">
+      <mat-form-field appearance="outline" class="w-full mb-4">
+        <mat-label class="!text-[#77726E] !font-sourGummy">Title</mat-label>
+        <input
+          matInput
+          placeholder="Enter Recipe Title"
+          name="title"
+          required
+          class="rounded-md p-2 w-full !text-[#77726E] !font-sourGummy"
+          formControlName="title"
+        />
+        <mat-error *ngIf="recipeForm.get('title')?.hasError('required')"
+          >Title is required.</mat-error
+        >
+        <mat-error *ngIf="recipeForm.get('title')?.hasError('minlength')">
+          Title must be at least 2 characters long
+        </mat-error>
+        <mat-error *ngIf="recipeForm.get('title')?.hasError('maxlength')">
+          Title cannot exceed 45 characters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-full mb-4 h-[150px]">
+        <mat-label class="!text-[#77726E] !font-sourGummy"
+          >Description</mat-label
+        >
+        <textarea
+          matInput
+          placeholder="Recipe Description..."
+          name="description"
+          required
+          class="rounded-md p-2 w-full !text-[#77726E] !font-sourGummy"
+          maxlength="150"
+          rows="4"
+          formControlName="description"
+        ></textarea>
+        <mat-error *ngIf="recipeForm.get('description')?.hasError('required')">
+          Description is required
+        </mat-error>
+        <mat-error *ngIf="recipeForm.get('description')?.hasError('minlength')">
+          Description must be at least 15 characters long
+        </mat-error>
+        <mat-error *ngIf="recipeForm.get('description')?.hasError('maxlength')">
+          Description cannot exceed 150 characters
+        </mat-error>
+      </mat-form-field>
+
+      <div class="w-full">
+        <mat-form-field appearance="outline" class="w-full">
+          <mat-label class="!text-[#77726E] !font-sourGummy"
+            >Ingredients</mat-label
+          >
+          <input
+            matInput
+            class="py-2 px-3 !text-[#77726E] !font-sourGummy rounded-md"
+            type="text"
+            id="ingredients"
+            placeholder="Add Ingredients"
+            [formControl]="ingredient"
+            (keydown.enter)="$event.preventDefault(); addIngredient()"
+          />
+
+          <mat-error
+            *ngIf="recipeForm.get('ingredients')?.hasError('required')"
+          >
+            Ingredients are required
+          </mat-error>
+          <mat-error
+            *ngIf="recipeForm.get('ingredients')?.hasError('maxlength')"
+          >
+            Ingredients cannot exceed 20
+          </mat-error>
+          <mat-error *ngIf="ingredient?.hasError('maxlength')">
+            Ingredient cannot exceed 30 characters
+          </mat-error>
+          <mat-error *ngIf="ingredient?.hasError('minlength')">
+            Ingredient must be at least 2 characters long
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <mat-chip-listbox aria-label="ingredient-tags" class="mt-2">
+        <mat-chip
+          *ngFor="let ingredient of ingredients.controls; let i = index"
+          removable="true"
+          class="!text-[#77726E] !font-sourGummy"
+        >
+          {{ ingredient.value }}
+          <button
+            type="button"
+            class="ml-2 size-4 text-xs text-[#F6F2EE] bg-[#77726E] rounded-full font-sourGummy"
+            (click)="removeIngredient(i)"
+          >
+            X
+          </button>
+        </mat-chip>
+      </mat-chip-listbox>
+
+      <div class="flex justify-end mb-2">
+        <button
+          type="button"
+          class="px-4 py-2 bg-[#77726E] text-[#F6F2EE] rounded-full font-sourGummy duration-300 hover:duration-300 hover:bg-[#e2c3aa] border border-[#77726E]"
+          (click)="addIngredient()"
+        >
+          Add
+        </button>
+      </div>
+
+      <mat-form-field appearance="outline" class="w-full mb-8 h-[150px]">
+        <mat-label class="!text-[#77726E] !font-sourGummy"
+          >Instructions</mat-label
+        >
+        <textarea
+          matInput
+          placeholder="Recipe Instructions..."
+          name="instructions"
+          required
+          class="rounded-md p-2 w-full !text-[#77726E] !font-sourGummy"
+          maxlength="500"
+          rows="5"
+          formControlName="instructions"
+        ></textarea>
+        <mat-error *ngIf="recipeForm.get('instructions')?.hasError('required')">
+          Instructions are required
+        </mat-error>
+        <mat-error
+          *ngIf="recipeForm.get('instructions')?.hasError('minlength')"
+        >
+          Instructions must be at least 15 characters long
+        </mat-error>
+        <mat-error
+          *ngIf="recipeForm.get('instructions')?.hasError('maxlength')"
+        >
+          Instructions cannot exceed 500 characters
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        *ngIf="isUrlSelected"
+        appearance="outline"
+        class="w-full mb-4"
+      >
+        <mat-label class="!text-[#77726E] !font-sourGummy">Image URL</mat-label>
+        <input
+          matInput
+          placeholder="Enter Image URL"
+          name="imageUrl"
+          type="url"
+          class="!text-[#77726E] !font-sourGummy rounded-md p-2 w-full"
+          formControlName="imageUrl"
+        />
+        <mat-error *ngIf="recipeForm.get('imageUrl')?.hasError('required')">
+          Image is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- File Upload Input -->
+      <div *ngIf="isFileSelected" class="w-full mb-4">
+        <label class="!text-[#77726E] !font-sourGummy">Upload Image</label>
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          class="w-full px-4 py-2 bg-[#F6F2EE] !text-[#77726E] !font-sourGummy rounded-full"
+        />
+      </div>
+
+      <!-- Button to toggle between URL or File Upload -->
+      <div class="w-full flex justify-between mb-4">
+        <button
+          type="button"
+          class="px-4 py-2 bg-[#77726E] !text-[#F6F2EE] !font-sourGummy rounded-full duration-300 hover:duration-300 hover:bg-[#e2c3aa]"
+          (click)="toggleImageOption('url')"
+        >
+          URL-based
+        </button>
+        <button
+          type="button"
+          class="px-4 py-2 bg-[#77726E] !text-[#F6F2EE] !font-sourGummy rounded-full duration-300 hover:duration-300 hover:bg-[#e2c3aa]"
+          (click)="toggleImageOption('file')"
+        >
+          File Upload
+        </button>
+      </div>
+
+      <button
+        mat-raised-button
+        type="submit"
+        class="w-full !bg-[#77726E] !text-[#F6F2EE] p-2 rounded-md !font-sourGummy !duration-300 hover:!duration-300 hover:!bg-[#e2c3aa] !border border-[#F6F2EE] hover:!border-[#77726E]"
+      >
+        Add Recipe
+      </button>
+    </fieldset>
+  </form>
+</mat-card>

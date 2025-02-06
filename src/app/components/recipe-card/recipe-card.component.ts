@@ -1,5 +1,4 @@
 import { Component, input, InputSignal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { RecipeInterface } from '../../interfaces/recipe.interface';
 
 @Component({
@@ -10,5 +9,6 @@ import { RecipeInterface } from '../../interfaces/recipe.interface';
   styleUrl: './recipe-card.component.css',
 })
 export class RecipeCardComponent {
+  // Input property to receive a recipe object, using Angular signals
   recipe: InputSignal<RecipeInterface | undefined> = input<RecipeInterface>();
 }

@@ -27,33 +27,37 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   search = new FormControl('');
 
+  // component destruction lifecycle subject
   destroy$ = new Subject<void>();
 
+  // recipes observable
   recipes$?: Observable<RecipeInterface[]>;
 
   ngOnInit(): void {
+    // fetching favorite recipes, also saerch recipe using title or ingredient
     this.recipes$ = this.search.valueChanges.pipe(
       startWith(''),
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((query) =>
-        this.recipeService
-          .getAllRecipes()
-          .pipe(
-            map((recipes) =>
-              recipes.filter(
-                (recipe) =>
-                  recipe.title.toLowerCase().includes(query!.toLowerCase()) ||
-                  recipe.description
-                    .toLowerCase()
-                    .includes(query!.toLowerCase())
-              )
-            )
-          )
+        this.recipeService.getAllRecipes().pipe(
+          map((recipes) => {
+            if (!query) return recipes;
+            const queryLower = query.toLowerCase();
+            return recipes.filter(
+              (recipe) =>
+                recipe.title.toLowerCase().includes(queryLower) ||
+                recipe.ingredients.some((ingredient) =>
+                  ingredient.toLowerCase().includes(queryLower)
+                )
+            );
+          })
+        )
       )
     );
   }
 
+  // to prevent memory leak cleanup subscriptions
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

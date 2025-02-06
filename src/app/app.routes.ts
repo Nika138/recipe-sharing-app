@@ -8,16 +8,39 @@ import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'favorites', component: FavoritesComponent },
-  { path: 'add-recipe', component: AddRecipeComponent },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((c) => c.HomeComponent),
+  },
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./pages/favorites/favorites.component').then(
+        (c) => c.FavoritesComponent
+      ),
+  },
+  {
+    path: 'add-recipe',
+    loadComponent: () =>
+      import('./pages/add-recipe/add-recipe.component').then(
+        (c) => c.AddRecipeComponent
+      ),
+  },
   {
     path: 'recipe/:id',
-    component: RecipeComponent,
+    loadComponent: () =>
+      import('./pages/recipe/recipe.component').then((c) => c.RecipeComponent),
     resolve: {
       recipe: recipeResolver,
     },
   },
-  { path: 'not-found', component: NotFoundComponent },
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./pages/not-found/not-found.component').then(
+        (c) => c.NotFoundComponent
+      ),
+  },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];

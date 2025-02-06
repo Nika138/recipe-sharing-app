@@ -1,6 +1,7 @@
 <div
-  class="flex flex-col items-center justify-start mt-16 min-h-screen bg-[#F4EADE] px-2 sm:px-4 md:px-6 max-w-screen-xxl mx-auto"
+  class="flex flex-col items-center justify-start mt-16 pb-16 min-h-screen px-2 sm:px-4 md:px-6 max-w-screen-xxl mx-auto"
 >
+  <!-- Page Heading -->
   <h1
     class="text-6xl sm:text-8xl font-semibold text-center mb-6 text-[#77726E] font-rouge tracking-[1.5rem] w-full border-b border-[#77726E] pb-3"
   >
@@ -27,6 +28,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
     >
+      <!-- Recipe Card -->
       <app-recipe-card
         *ngFor="let recipe of recipes"
         [recipe]="recipe"

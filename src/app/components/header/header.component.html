@@ -1,4 +1,4 @@
-<header class="z-20 sticky top-0 w-full py-5 bg-[#323841] left-0">
+<header class="z-40 sticky top-0 w-full py-5 bg-[#323841] left-0">
   <div
     class="max-w-screen-xxl mx-auto px-5 flex justify-between md:justify-center items-center lg:space-x-44 xl:space-x-52"
   >
@@ -47,7 +47,7 @@
 
 <!-- Burger menu -->
 <div
-  *ngIf="burgerMenu"
+  *ngIf="burgerMenu()"
   class="z-20 flex justify-center items-center md:hidden fixed top-0 left-0 w-full bg-[#323841] duration-300 h-screen px-12 py-24"
 >
   <ul

@@ -1,145 +1,18 @@
 <div
-  class="flex flex-col items-center justify-start py-24 min-h-screen px-4 sm:px-6 md:px-8"
+  class="w-full mx-auto flex lg:flex-row flex-col lg:gap-x-12 items-center justify-start lg:justify-center lg:items-start mt-16 min-h-screen px-4 sm:px-6 md:px-8"
 >
-  <h1 class="text-4xl font-semibold text-center mb-12 text-gray-800">
-    Add Recipe
-  </h1>
-
-  <mat-card class="w-full max-w-lg mx-auto my-8 p-6 shadow-lg">
-    <form (ngSubmit)="onSubmit()" [formGroup]="recipeForm">
-      <mat-form-field appearance="fill" class="w-full mb-4">
-        <mat-label>Title</mat-label>
-        <input
-          matInput
-          placeholder="Enter Recipe Title"
-          name="title"
-          required
-          class="border-gray-300 rounded-md p-2 w-full"
-          formControlName="title"
-        />
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="w-full mb-4 h-[150px]">
-        <mat-label>Description</mat-label>
-        <textarea
-          matInput
-          placeholder="Recipe Description..."
-          name="description"
-          required
-          class="border-gray-300 rounded-md p-2 w-full resize-none"
-          maxlength="150"
-          rows="4"
-          formControlName="description"
-        ></textarea>
-      </mat-form-field>
-
-      <div class="w-full">
-        <mat-form-field appearance="fill" class="w-full">
-          <mat-label>Ingredients</mat-label>
-          <input
-            matInput
-            class="py-2 px-3 border border-borderC rounded-md"
-            type="text"
-            id="ingredients"
-            placeholder="Add Ingredients"
-            [formControl]="ingredient"
-            (keydown.enter)="$event.preventDefault(); addIngredient()"
-          />
-        </mat-form-field>
-      </div>
-
-      <mat-chip-listbox aria-label="ingredient-tags" class="mt-2">
-        <mat-chip
-          *ngFor="let ingredient of ingredients.controls; let i = index"
-          removable="true"
-        >
-          {{ ingredient.value }}
-          <button
-            type="button"
-            class="ml-2 size-4 text-xs text-white bg-gray-700 rounded-full"
-            (click)="removeIngredient(i)"
-          >
-            X
-          </button>
-        </mat-chip>
-      </mat-chip-listbox>
-
-      <div class="flex justify-end mb-2">
-        <button
-          type="button"
-          class="px-4 py-2 bg-indigo-500 text-white rounded-full"
-          (click)="addIngredient()"
-        >
-          Add
-        </button>
-      </div>
-
-      <mat-form-field appearance="fill" class="w-full mb-6">
-        <mat-label>Instructions</mat-label>
-        <input
-          matInput
-          placeholder="Enter your password"
-          name="instrucions"
-          type="text"
-          required
-          class="border-gray-300 rounded-md p-2 w-full"
-          formControlName="instructions"
-        />
-      </mat-form-field>
-
-      <mat-form-field
-        *ngIf="isUrlSelected"
-        appearance="fill"
-        class="w-full mb-4"
-      >
-        <mat-label>Image URL</mat-label>
-        <input
-          matInput
-          placeholder="Enter Image URL"
-          name="imageUrl"
-          type="url"
-          class="border-gray-300 rounded-md p-2 w-full"
-          formControlName="imageUrl"
-        />
-      </mat-form-field>
-
-      <!-- File Upload Input -->
-      <div *ngIf="isFileSelected" class="w-full mb-4">
-        <mat-label>Upload Image</mat-label>
-        <input
-          type="file"
-          accept="image/*"
-          (change)="onFileSelected($event)"
-          class="border-gray-300 rounded-md p-2 w-full"
-        />
-      </div>
-
-      <!-- Button to toggle between URL or File Upload -->
-      <div class="flex justify-between mb-4">
-        <button
-          type="button"
-          class="px-4 py-2 bg-indigo-500 text-white rounded-full"
-          (click)="toggleImageOption('url')"
-        >
-          URL-based
-        </button>
-        <button
-          type="button"
-          class="px-4 py-2 bg-indigo-500 text-white rounded-full"
-          (click)="toggleImageOption('file')"
-        >
-          File Upload
-        </button>
-      </div>
-
-      <button
-        mat-raised-button
-        color="primary"
-        type="submit"
-        class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 disabled:bg-gray-300"
-      >
-        Add Recipe
-      </button>
-    </form>
-  </mat-card>
+  <header class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+    <!-- Page heading -->
+    <h1
+      class="xl:text-8xl text-7xl font-semibold mb-4 text-[#77726E] font-rouge border-b border-[#77726E] w-fit"
+    >
+      Add Recipe
+    </h1>
+  </header>
+  <div class="w-full lg:m-0 lg:w-1/2">
+    <app-recipe-form (submitEvent)="onSubmit($event)"></app-recipe-form>
+    <div *ngIf="isLoading()" class="py-2">
+      <app-loading></app-loading>
+    </div>
+  </div>
 </div>

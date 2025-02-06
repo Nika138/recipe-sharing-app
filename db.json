@@ -16,61 +16,92 @@
       ],
       "instructions": "1. Mix flour, yeast, sugar, salt, milk, and butter to form dough. Let rise for 1 hour. 2. Roll out dough and fill with crumbled cheese. 3. Shape into a boat and bake at 200°C for 15 minutes. 4. Crack an egg in the center and bake for 5 more minutes. Serve warm.",
       "imageUrl": "https://imgs.search.brave.com/uXaMAXqqisj7_N5PxuTiij1ClwjrDBE_U_q9InrMuBM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmdlb3JnaWEu/dHJhdmVsL2ltYWdl/cy90dXNodXJpLWto/YWNoYXB1cmkud2Vi/cA",
+      "isFavorite": true
+    },
+    {
+      "id": "dd75",
+      "title": "Khinkali",
+      "description": "These savory dumplings are stuffed with spiced meat (usually beef and pork) and are a staple of Georgian cuisine.",
+      "ingredients": [
+        "ground beef and pork mixture",
+        "1 onion, finely chopped",
+        "2 cloves garlic, minced",
+        "1 tsp cumin",
+        "200g flour",
+        "100ml water",
+        "Salt and pepper to taste"
+      ],
+      "instructions": "Combine meat, onions, garlic, cumin, salt, and pepper to make the filling.\nMake dough by mixing flour, water, and salt; knead and let rest.\nRoll out dough into circles, place a spoonful of filling, an",
+      "imageUrl": "https://imgs.search.brave.com/2i7GbZlw_CnXCpTmFaRQRMc5BX2Z0azpe0YPWdfm0R8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZkL0toaW5rYWxp/LmpwZw",
+      "isFavorite": true
+    },
+    {
+      "id": "4b55",
+      "title": "Lobio",
+      "description": "A hearty and flavorful dish, Lobio is a stew made from red kidney beans, spices, and herbs.",
+      "ingredients": [
+        "500g red kidney beans",
+        "1 onion, chopped",
+        "2 tomatoes, chopped",
+        "1 tsp coriander seeds",
+        "1 tsp cumin",
+        "2 tbsp olive oil",
+        "Fresh cilantro",
+        "Salt and pepper to taste"
+      ],
+      "instructions": "Cook beans in boiling water until tender (about 1 hour).\nIn a pan, sauté onions and tomatoes with olive oil, coriander, and cumin.\nAdd the cooked beans to the pan, stir well, and cook for 15 minutes.\n",
+      "imageUrl": "https://imgs.search.brave.com/reXoquJ6UaFFdMqb9wRwstcZTUQ6W82cU8xZCCZdEKk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9maWJl/ci5nZS93cC1jb250/ZW50L3VwbG9hZHMv/bG9iaW9zLXJlY2Vw/dGkud2VicA",
       "isFavorite": false
     },
     {
-      "id": "2",
-      "title": "Khachapuri",
-      "description": "Cheese-filled Georgian bread, a national favorite.",
+      "id": "2a81",
+      "title": "Chakapuli",
+      "description": "A traditional spring dish, Chakapuli is a tender lamb stew flavored with tarragon, garlic, and white wine.",
       "ingredients": [
-        "flour",
-        "salt",
-        "sugar",
-        "dry yeast",
-        "warm milk",
-        "butter",
-        "sulguni or feta cheese",
-        "egg"
+        "1 kg lamb, cut into pieces",
+        "1 onion, chopped",
+        "1 bunch tarragon",
+        "200ml white wine",
+        "1 bunch parsley",
+        "2 cloves garlic, minced",
+        "Salt and pepper"
       ],
-      "instructions": "1. Mix flour, yeast, sugar, salt, milk, and butter to form dough. Let rise for 1 hour. 2. Roll out dough and fill with crumbled cheese. 3. Shape into a boat and bake at 200°C for 15 minutes. 4. Crack an egg in the center and bake for 5 more minutes. Serve warm.",
-      "imageUrl": "https://imgs.search.brave.com/uXaMAXqqisj7_N5PxuTiij1ClwjrDBE_U_q9InrMuBM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmdlb3JnaWEu/dHJhdmVsL2ltYWdl/cy90dXNodXJpLWto/YWNoYXB1cmkud2Vi/cA",
+      "instructions": "Sauté onions and garlic in a pot, then add lamb and brown on all sides.\nPour in white wine, add tarragon, parsley, salt, and pepper.\nSimmer on low heat for 1.5 hours, adding water if needed, until lam",
+      "imageUrl": "https://imgs.search.brave.com/Rf1P6TPEAYJwAon4YGjp44lnl719S60qmzfCcwLScik/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLm5pbmcuY29t/L3RvcG9sb2d5L3Jl/c3QvMS4wL2ZpbGUv/Z2V0LzIwNjQwMDQw/ODU_cHJvZmlsZT1v/cmlnaW5hbA",
       "isFavorite": false
     },
     {
-      "id": "2",
-      "title": "Khachapuri",
-      "description": "Cheese-filled Georgian bread, a national favorite.",
+      "id": "a2fa",
+      "title": "Satsivi",
+      "description": "Satsivi is a rich and creamy chicken dish served in a flavorful walnut sauce, often enjoyed during festive meals.",
       "ingredients": [
-        "flour",
-        "salt",
-        "sugar",
-        "dry yeast",
-        "warm milk",
-        "butter",
-        "sulguni or feta cheese",
-        "egg"
+        "1 kg chicken",
+        "200g walnuts",
+        "1 onion, chopped",
+        "1 tsp garlic",
+        "200ml chicken broth",
+        "1 tbsp vinegar",
+        "Salt, pepper to taste"
       ],
-      "instructions": "1. Mix flour, yeast, sugar, salt, milk, and butter to form dough. Let rise for 1 hour. 2. Roll out dough and fill with crumbled cheese. 3. Shape into a boat and bake at 200°C for 15 minutes. 4. Crack an egg in the center and bake for 5 more minutes. Serve warm.",
-      "imageUrl": "https://imgs.search.brave.com/uXaMAXqqisj7_N5PxuTiij1ClwjrDBE_U_q9InrMuBM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmdlb3JnaWEu/dHJhdmVsL2ltYWdl/cy90dXNodXJpLWto/YWNoYXB1cmkud2Vi/cA",
+      "instructions": "Boil the chicken until tender, then shred it.\nIn a pan, sauté onions and garlic, then add walnuts, chicken broth, and spices.\nSimmer the sauce for 20 minutes, then blend until smooth.\nPour sauce over ",
+      "imageUrl": "https://imgs.search.brave.com/3SqJNg4BJkX0R8GbMoOrRhf-B0UdsAjE8jP_eG3PwSw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9maWJl/ci5nZS93cC1jb250/ZW50L3VwbG9hZHMv/c2F0c2l2aXMtcmVj/ZXB0aS53ZWJw",
       "isFavorite": false
     },
     {
-      "id": "2",
-      "title": "Khachapuri",
-      "description": "Cheese-filled Georgian bread, a national favorite.",
+      "id": "9f92",
+      "title": "Mchadi",
+      "description": "A simple and hearty cornbread, Mchadi is often served as a side dish to stews or with cheese and sour cream.",
       "ingredients": [
-        "flour",
-        "salt",
-        "sugar",
-        "dry yeast",
-        "warm milk",
-        "butter",
-        "sulguni or feta cheese",
-        "egg"
+        "200g cornmeal",
+        "100g flour",
+        "1 tsp salt",
+        "1 tsp baking powder",
+        "200ml water",
+        "2 tbsp vegetable oil"
       ],
-      "instructions": "1. Mix flour, yeast, sugar, salt, milk, and butter to form dough. Let rise for 1 hour. 2. Roll out dough and fill with crumbled cheese. 3. Shape into a boat and bake at 200°C for 15 minutes. 4. Crack an egg in the center and bake for 5 more minutes. Serve warm.",
-      "imageUrl": "https://imgs.search.brave.com/uXaMAXqqisj7_N5PxuTiij1ClwjrDBE_U_q9InrMuBM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmdlb3JnaWEu/dHJhdmVsL2ltYWdl/cy90dXNodXJpLWto/YWNoYXB1cmkud2Vi/cA",
-      "isFavorite": false
+      "instructions": "Mix cornmeal, flour, salt, and baking powder in a bowl.\nGradually add water and oil, mixing into a dough.\nShape into small patties and fry in a hot pan until golden brown on both sides.",
+      "imageUrl": "https://imgs.search.brave.com/QxxMbpZxv_ft5-bvbzvVYEB8m_7D2j1BvpwbKEAnjwo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8x/LzEzL01jaGFkaV8y/LmpwZw",
+      "isFavorite": true
     }
   ]
 }

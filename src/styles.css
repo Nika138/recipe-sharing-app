@@ -7,3 +7,24 @@ body {
   margin: 0;
   height: 100%;
 }
+
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #323841;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #77726e;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #68635f;
+}
