@@ -5,13 +5,14 @@ import { RecipeInterface } from '../interfaces/recipe.interface';
 import { AddRecipeInterface } from '../interfaces/add-recipe.interface';
 import { EditRecipeInterface } from '../interfaces/edit-recipe.interface';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipeService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/recipes'; // API endpoint for recipes
+  private readonly apiUrl = environment.apiUrl + '/recipes'; // API endpoint for recipes
 
   private readonly recipesSubject = new BehaviorSubject<RecipeInterface[]>([]); //  behaviorSubject to hold and emit the list of recipes
   public readonly recipes$ = this.recipesSubject.asObservable(); // observable that components can subscribe to  receive recipe data
