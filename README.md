@@ -1,31 +1,224 @@
-<<<<<<< HEAD
-# RecipeSharingApp
+# Recipe Sharing Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+This project is a Recipe Sharing Application designed with **Angular** for the frontend and **json-server** as a mock backend. Users can browse, create, update, and remove recipes through a simple and user-friendly interface.
 
-## Development server
+Live Demo: https://recipe-sharing-app-seven.vercel.app/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Note: The backend runs on Render's free-tier hosting, which may cause a delay in startup if the server has been idle. Please allow a few moments for it to initialize.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Table of Contents
 
-## Build
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [Mock Backend (`db.json`)](#mock-backend-dbjson)
+- [Tailwind CSS Configuration](#tailwind-css-configuration)
+- [Scripts](#scripts)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **View Recipes:** Explore a collection of recipes featuring titles, descriptions, and images.
+- **Add New Recipes:** Add your own recipes with a title, ingredients, step-by-step instructions, and an image.
+- **Edit/Delete Recipes:** Modify or delete recipes seamlessly with a user-friendly interface.
+- **Favorites:** Save and filter your favorite recipes with ease.
+- **Responsive Design:** Styled with Tailwind CSS for a smooth and responsive experience across all devices.
+- **Mock Backend:** Uses json-server for data management.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Prerequisites
 
-## Further help
+Ensure you have the following installed on your machine:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# recipe-sharing-app
->>>>>>> 10fd4d750eb5cbda7577bec143b22f9c25466016
+- [Node.js](https://nodejs.org/) (v16 or later)
+- [Angular CLI](https://angular.io/cli) (v18)
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Nika138/recipe-sharing-app.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd recipe-sharing-app
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+---
+
+## Running the Application
+
+### Start Both Frontend and Backend Servers
+
+1. Use the `start` script to run both the Angular frontend and mock backend simultaneously:
+   ```bash
+   npm run start
+   ```
+
+- Frontend: Accessible at [http://localhost:4200](http://localhost:4200)
+- Mock Backend: Available at [http://localhost:3000/recipes](http://localhost:3000/recipes)
+
+### Individual Servers (Optional)
+
+To run the frontend only:
+
+```bash
+npm run frontend
+```
+
+To run the mock backend only:
+
+```bash
+npm run backend
+```
+
+---
+
+## Folder Structure
+
+```
+src/
+├── app/
+│   ├── features/
+│   │   ├── home/                      # Landing page
+│   │   ├── not-found/                 # Error 404 page
+│   │   ├── recipes/
+│   │   │   ├── components/
+│   │   │   │   ├── list/               # Recipe list component
+│   │   │   │   ├── detail/             # Detailed view of a recipe
+│   │   │   │   ├── submission/         # New recipe form
+│   │   │   │   ├── card/               # Recipe card for list view
+│   │   │   │   ├── form/               # Form for recipe modification
+│   │   │   ├── services/
+│   │   │   │   ├── recipe.service.ts   # Service for recipe operations
+│   │   │   ├── interfaces/             # Interfaces for type safety
+│   │   │   ├── resolvers/              # Resolve data for components
+│   │   │   ├── types/                  # Custom types for clarity
+├── shared/                             # Shared components and utilities
+│   ├── components/
+│   │   ├── header/                     # App header
+│   │   ├── loading/                    # Loading indicator
+│   ├── interceptors/
+│   │   ├── http-error.interceptor.ts   # HTTP error handling
+├── app-routing.module.ts               # Routing configuration
+├── app.module.ts                       # Main Angular module
+├── app.component.ts                    # Root component
+├── environments/                       # Environment configurations
+└── public/
+    ├── icons/                          # SVG icons for the UI
+    ├── images/                         # Placeholder and static images
+```
+
+---
+
+## Mock Backend (`db.json`)
+
+Using json-server to simulate backend, here's a sample `db.json`:
+
+```typescript
+{
+  RecipeInterface {
+  id: string;
+  title: string;
+  description: string;
+  ingredients: string[];
+  instructions: string;
+  imageUrl: string;
+  isFavorite?: boolean;
+}
+}
+```
+
+Start the backend:
+
+```bash
+npm run backend
+```
+
+---
+
+## Tailwind CSS Configuration
+
+Custom breakpoints for responsive design:
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: ["./src/**/*.{html,ts}"],
+  theme: {
+    screens: {
+      xs: "420px",
+      sm: "576px",
+      md: "768px",
+      lg: "1080px",
+      xl: "1280px",
+      xxl: "1440px",
+    },
+    extend: {
+      fontFamily: {
+        primaryFont: ["Inter", "sans-serif"],
+      },
+      colors: {
+        borderC: "#c3c6d4",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+---
+
+## Scripts
+
+| Script     | Description                                              |
+| ---------- | -------------------------------------------------------- |
+| `start`    | Starts both frontend and backend servers simultaneously. |
+| `frontend` | Runs the Angular development server only.                |
+| `backend`  | Initiates the mock backend server.                       |
+| `build`    | Builds the Angular app for production.                   |
+| `watch`    | Watches for changes and rebuilds the app.                |
+
+---
+
+## Deployment
+
+The application is deployed and accessible at:
+
+- Frontend: https://sweeft-project-alpha.vercel.app/ (Vercel)
+- Backend: Hosted on Render
+
+Note: Due to using Render's free tier hosting, the backend server may take a few minutes to wake up if it has been inactive. This will cause a slight delay in data loading on your first visit.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a detailed description of your changes.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
