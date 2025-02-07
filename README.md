@@ -96,36 +96,46 @@ npm run backend
 ## Folder Structure
 
 ```
-src/
-├── app/
-│   ├── features/
-│   │   ├── home/                      # Landing page
-│   │   ├── not-found/                 # Error 404 page
-│   │   ├── recipes/
-│   │   │   ├── components/
-│   │   │   │   ├── list/               # Recipe list component
-│   │   │   │   ├── detail/             # Detailed view of a recipe
-│   │   │   │   ├── submission/         # New recipe form
-│   │   │   │   ├── card/               # Recipe card for list view
-│   │   │   │   ├── form/               # Form for recipe modification
-│   │   │   ├── services/
-│   │   │   │   ├── recipe.service.ts   # Service for recipe operations
-│   │   │   ├── interfaces/             # Interfaces for type safety
-│   │   │   ├── resolvers/              # Resolve data for components
-│   │   │   ├── types/                  # Custom types for clarity
-├── shared/                             # Shared components and utilities
-│   ├── components/
-│   │   ├── header/                     # App header
-│   │   ├── loading/                    # Loading indicator
-│   ├── interceptors/
-│   │   ├── http-error.interceptor.ts   # HTTP error handling
-├── app-routing.module.ts               # Routing configuration
-├── app.module.ts                       # Main Angular module
-├── app.component.ts                    # Root component
-├── environments/                       # Environment configurations
-└── public/
-    ├── icons/                          # SVG icons for the UI
-    ├── images/                         # Placeholder and static images
+public/                                             # Public assets (if any, like images, icons, etc.)
+src/                                                # Main source code directory
+└── app/                                            # Core application folder
+    ├── components/                                 # Reusable UI components
+    │   ├── header/                                 # Header component
+    │   ├── loading/                                # Loading spinner or placeholder
+    │   ├── recipe-card/                            # UI for displaying a single recipe
+    │   ├── recipe-form/                            # Form for adding/editing recipes
+    │   ├── recipes-list/                           # Component to list multiple recipes
+    ├── directive/                                  # Custom Angular directives
+    │   └── click-outside.directive.ts              # Directive to handle click outside an element
+    ├── interfaces/                                 # TypeScript interfaces for data modeling
+    │   ├── add-recipe.interface.ts                 # Interface for adding a recipe
+    │   ├── edit-recipe.interface.ts                # Interface for editing a recipe
+    │   ├── recipe.interface.ts                     # General recipe data structure
+    ├── pages/                                      # Application pages
+    │   ├── add-recipe/                             # Page to add a new recipe
+    │   ├── favorites/                              # Page for favorite recipes
+    │   ├── home/                                   # Homepage component
+    │   ├── not-found/                              # 404 Not Found page
+    │   ├── recipe/                                 # Recipe detail page
+    ├── resolver/                                   # Route resolvers for preloading data
+    │   └── recipe.resolver.ts                      # Resolver to fetch recipe data before navigation
+    ├── services/                                   # Services for handling business logic & API calls
+    │   └── recipe.service.ts                       # Service for recipe-related API interactions
+    ├── types/                                      # Custom TypeScript types
+    │   ├── recipe-form.type.ts                     # Type definition for recipe form
+    │   ├── recipe-list-filter.type.ts              # Type definition for filtering recipes
+    ├── app.component.css                           # Global component styles
+    ├── app.component.html                          # Root component template
+    ├── app.component.ts                            # Root component logic
+    ├── app.config.ts                               # App configuration settings
+    ├── app.routes.ts                               # Routing configuration
+    ├── environments/                               # Environment-specific settings
+    │   ├── environment.development.ts              # Development environment variables
+    │   ├── environment.ts                          # Default environment variables
+    ├── custom-themes.scss                          # Custom SCSS theme styling
+    ├── index.html                                  # Main HTML file
+    ├── main.ts                                     # Entry point of the Angular application
+    ├── styles.css                                  # Global styles
 ```
 
 ---
