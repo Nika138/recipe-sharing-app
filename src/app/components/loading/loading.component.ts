@@ -5,17 +5,18 @@ import { Component } from '@angular/core';
   template: `<div class="loader"></div>`,
   standalone: true,
   styles: `
-  .loader {
-    width: fit-content;
-    font-weight: bold;
-    font-family: monospace;
-    font-size: 30px;
-    clip-path: inset(0 100% 0 0);
-    animation: l5 2s steps(11) infinite;
-  }
-  .loader:before {
-    content:"Loading..."
-  }
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #514b82;
+  -webkit-mask: radial-gradient(circle closest-side at 50% 40%,#0000 94%, #000);
+  transform-origin: 50% 40%;
+  animation: l25 1s infinite linear;
+}
+@keyframes l25 {
+  100% {transform: rotate(1turn)}
+}
   @keyframes l5 {to{clip-path: inset(0 -1ch 0 0)}}`,
 })
 export class LoadingComponent {}

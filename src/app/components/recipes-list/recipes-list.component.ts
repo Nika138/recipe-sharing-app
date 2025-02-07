@@ -55,7 +55,7 @@ export class RecipesListComponent {
       startWith(''),
       debounceTime(300),
       distinctUntilChanged(),
-      tap(() => this.isLoading.set(false)),
+      tap(() => this.isLoading.set(true)),
       switchMap((query) =>
         this.recipeService.getAllRecipes().pipe(
           map((recipes) => {

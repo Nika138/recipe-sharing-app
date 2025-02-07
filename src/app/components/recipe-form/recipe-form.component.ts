@@ -180,15 +180,6 @@ export class RecipeFormComponent implements OnInit {
       };
 
       this.submitEvent.emit(formData);
-
-      // this.recipeService.addRecipe(formData).subscribe({
-      //   next: () => {
-      //     this.router.navigate(['/home']);
-      //   },
-      //   error: (err: HttpErrorResponse) => {
-      //     alert('An error occurred while creating the recipe');
-      //   },
-      // });
     } else {
       alert('Please complete all required fields!');
       this.recipeForm.markAllAsTouched(); // to trigger validation errors
