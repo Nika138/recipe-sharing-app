@@ -144,18 +144,24 @@ src/                                                # Main source code directory
 
 Using json-server to simulate backend, here's a sample `db.json`:
 
-```typescript
+```json
 {
-  RecipeInterface {
-  id: string;
-  title: string;
-  description: string;
-  ingredients: string[];
-  instructions: string;
-  imageUrl: string;
-  isFavorite?: boolean;
-}
-}
+      "id": "dd75",
+      "title": "Khinkali",
+      "description": "These savory dumplings are stuffed with spiced meat (usually beef and pork) and are a staple of Georgian cuisine.",
+      "ingredients": [
+        "ground beef and pork mixture",
+        "1 onion, finely chopped",
+        "2 cloves garlic, minced",
+        "1 tsp cumin",
+        "200g flour",
+        "100ml water",
+        "Salt and pepper to taste"
+      ],
+      "instructions": "Combine meat, onions, garlic, cumin, salt, and pepper to make the filling.\nMake dough by mixing flour, water, and salt; knead and let rest.\nRoll out dough into circles, place a spoonful of filling, an",
+      "imageUrl": "https://imgs.search.brave.com/2i7GbZlw_CnXCpTmFaRQRMc5BX2Z0azpe0YPWdfm0R8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9m/L2ZkL0toaW5rYWxp/LmpwZw",
+      "isFavorite": true
+    },
 ```
 
 Start the backend:
@@ -176,19 +182,17 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     screens: {
-      xs: "420px",
+      xs: "320px",
       sm: "576px",
       md: "768px",
-      lg: "1080px",
-      xl: "1280px",
-      xxl: "1440px",
+      lg: "992px",
+      xl: "1200px",
+      xxl: "1400px",
     },
     extend: {
       fontFamily: {
-        primaryFont: ["Inter", "sans-serif"],
-      },
-      colors: {
-        borderC: "#c3c6d4",
+        rouge: ["Rouge Script", "cursive"],
+        sourGummy: ["Sour Gummy", "sans-serif"],
       },
     },
   },
@@ -204,7 +208,7 @@ module.exports = {
 | ---------- | -------------------------------------------------------- |
 | `start`    | Starts both frontend and backend servers simultaneously. |
 | `frontend` | Runs the Angular development server only.                |
-| `backend`  | Initiates the mock backend server.                       |
+| `backend`  | Runs the mock backend server only.                       |
 | `build`    | Builds the Angular app for production.                   |
 | `watch`    | Watches for changes and rebuilds the app.                |
 
@@ -214,7 +218,7 @@ module.exports = {
 
 The application is deployed and accessible at:
 
-- Frontend: https://sweeft-project-alpha.vercel.app/ (Vercel)
+- Frontend: https://recipe-sharing-app-seven.vercel.app/ (Vercel)
 - Backend: Hosted on Render
 
 Note: Due to using Render's free tier hosting, the backend server may take a few minutes to wake up if it has been inactive. This will cause a slight delay in data loading on your first visit.
