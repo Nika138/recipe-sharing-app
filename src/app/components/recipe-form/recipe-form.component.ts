@@ -22,9 +22,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { RecipeService } from '../../services/recipe.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { EditRecipeInterface } from '../../interfaces/edit-recipe.interface';
 import { RecipeFormType } from '../../types/recipe-form.type';
 
@@ -47,21 +44,22 @@ import { RecipeFormType } from '../../types/recipe-form.type';
 })
 export class RecipeFormComponent implements OnInit {
   private fb = inject(FormBuilder);
-  private recipeService = inject(RecipeService);
-  private router = inject(Router);
 
-  @Input() formValues?: RecipeFormType;
-  @Output() submitEvent = new EventEmitter<RecipeFormType>();
+  @Input() formValues?: RecipeFormType; // input property to receive form data
+  @Output() submitEvent = new EventEmitter<RecipeFormType>(); // output event to emit form data on submit
 
-  isUrlSelected: boolean = true;
-  isFileSelected: boolean = false;
+  // variables for managing image selection options
+  isUrlSelected: boolean = true; // tracks whether URL image option is selected
+  isFileSelected: boolean = false; // tracks whether file upload option is selected
 
+  // form control for managing the ingredient input field
   ingredient = new FormControl('', [
     Validators.required,
     Validators.minLength(2),
     Validators.maxLength(30),
   ]);
 
+  // form group for the entire recipe form
   recipeForm: FormGroup = this.fb.nonNullable.group({
     title: [
       '',
@@ -91,10 +89,12 @@ export class RecipeFormComponent implements OnInit {
     isFavorite: [false, [Validators.required]],
   });
 
+  // getter for ingredients form array to easily access and manipulate it
   get ingredients(): FormArray {
     return this.recipeForm.get('ingredients') as FormArray;
   }
 
+  // OnInit lifecycle hook, runs when the component is initialized
   ngOnInit(): void {
     if (this.formValues) {
       this.recipeForm.patchValue({
@@ -113,6 +113,7 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
+  // method to add a new ingredient to the form
   addIngredient(event?: Event): void {
     event?.preventDefault();
 
@@ -127,10 +128,12 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
+  // method to remove an ingredient from the form by its index
   removeIngredient(index: number) {
     this.ingredients.removeAt(index);
   }
 
+  // method to toggle between URL and file image options
   toggleImageOption(option: 'url' | 'file') {
     if (option === 'url') {
       this.isUrlSelected = true;
@@ -143,6 +146,7 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
+  // helper method to convert a selected file to a base64 string
   convertFileToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -152,6 +156,7 @@ export class RecipeFormComponent implements OnInit {
     });
   }
 
+  // method to handle file selection and update the form with the base64 image data
   onFileSelected(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -161,8 +166,10 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
+  // method to handle form submission
   onSubmit(): void {
     if (this.recipeForm.valid) {
+      // if form is valid, create an object with the form data
       const formData: EditRecipeInterface = {
         title: this.recipeForm.get('title')?.value,
         description: this.recipeForm.get('description')?.value,

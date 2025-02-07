@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../services/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeInterface } from '../../interfaces/recipe.interface';
-import { HttpClient } from '@angular/common/http';
-import { MatDialog } from '@angular/material/dialog';
 import { RecipeFormType } from '../../types/recipe-form.type';
 import { RecipeFormComponent } from '../../components/recipe-form/recipe-form.component';
 import { ClickOutsideDirective } from '../../directive/click-outside.directive';

@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { BehaviorSubject, filter, map, Subject, takeUntil } from 'rxjs';
+import { filter, map, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-header',

@@ -1,20 +1,5 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecipeService } from '../../services/recipe.service';
 import { AddRecipeInterface } from '../../interfaces/add-recipe.interface';
@@ -31,7 +16,6 @@ import { LoadingComponent } from '../../components/loading/loading.component';
   styleUrl: './add-recipe.component.css',
 })
 export class AddRecipeComponent {
-  private fb = inject(FormBuilder);
   private recipeService = inject(RecipeService);
   private router = inject(Router);
 
