@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
-  template: `<div class="loader"></div>`,
+  template: `<div class="loader mx-auto"></div>`,
   standalone: true,
   styles: `
 .loader {

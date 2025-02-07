@@ -16,18 +16,19 @@
     *ngIf="recipes$ | async as recipes; else fetchLoadingOrError"
     class="w-full max-w-[1400px] mx-auto"
   >
+    <app-loading *ngIf="isLoading()"></app-loading>
     <div
       *ngIf="recipes.length > 0; else noRecipes"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
     >
-      <app-loading *ngIf="isLoading()"></app-loading>
-      <!-- Recipe Card -->
       <app-recipe-card
         *ngFor="let recipe of recipes"
         [recipe]="recipe"
         class="cursor-pointer px-2 sm:px-0"
         [routerLink]="['/recipe', recipe.id]"
       ></app-recipe-card>
+
+      <!-- Recipe Card -->
     </div>
 
     <!-- if there are no favorited recipes -->
