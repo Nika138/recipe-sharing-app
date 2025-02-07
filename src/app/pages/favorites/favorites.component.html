@@ -8,42 +8,7 @@
     Favorite Recipes
   </h1>
 
-  <!-- Search bar -->
-  <div
-    class="w-full max-w-[800px] mb-8 border-b border-[#77726E] pb-2 flex items-center justify-center"
-  >
-    <input
-      type="text"
-      class="w-full max-w-[650px] px-4 py-2 border-2 border-[#77726E] rounded-lg shadow-sm focus:outline-none bg-[#F6F2EE] text-[#77726E] placeholder:text-[#77726E] placeholder:font-sourGummy"
-      placeholder="Search favorite recipes..."
-      [formControl]="search"
-    />
-  </div>
-
-  <!-- Recipes Section -->
-  <div
-    *ngIf="recipes$ | async as recipes"
-    class="w-full max-w-[1400px] mx-auto"
-  >
-    <div
-      *ngIf="recipes.length > 0; else noFavorites"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-    >
-      <!-- Recipe Card -->
-      <app-recipe-card
-        *ngFor="let recipe of recipes"
-        [recipe]="recipe"
-        class="cursor-pointer px-2 sm:px-0"
-        [routerLink]="['/recipe', recipe.id]"
-      ></app-recipe-card>
-    </div>
-
-    <!-- if there are no favorited recipes -->
-
-    <ng-template #noFavorites>
-      <p class="text-center text-2xl text-[#77726E] font-sourGummy mt-12">
-        No favorite recipes yet. Add some!
-      </p>
-    </ng-template>
+  <div class="w-full">
+    <app-recipes-list [filter]="'favorited'"></app-recipes-list>
   </div>
 </div>

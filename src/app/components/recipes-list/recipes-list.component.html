@@ -1,0 +1,54 @@
+<div class="w-full flex flex-col items-center">
+  <!-- Search bar -->
+  <div
+    class="max-w-[50rem] w-full mb-8 border-b border-[#77726E] pb-2 flex items-center justify-center"
+  >
+    <input
+      type="text"
+      class="w-full max-w-[40.625rem] px-4 py-2 border-2 border-[#77726E] rounded-lg shadow-sm focus:outline-none bg-[#F6F2EE] text-[#77726E] placeholder:text-[#77726E] placeholder:font-sourGummy"
+      placeholder="Search favorite recipes..."
+      [formControl]="search"
+    />
+  </div>
+
+  <!-- Recipes Section -->
+  <div
+    *ngIf="recipes$ | async as recipes; else fetchLoadingOrError"
+    class="w-full max-w-[1400px] mx-auto"
+  >
+    <div
+      *ngIf="recipes.length > 0; else noRecipes"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+    >
+      <app-loading *ngIf="isLoading()"></app-loading>
+      <!-- Recipe Card -->
+      <app-recipe-card
+        *ngFor="let recipe of recipes"
+        [recipe]="recipe"
+        class="cursor-pointer px-2 sm:px-0"
+        [routerLink]="['/recipe', recipe.id]"
+      ></app-recipe-card>
+    </div>
+
+    <!-- if there are no favorited recipes -->
+
+    <ng-template #noRecipes>
+      <p class="text-center text-2xl text-[#77726E] font-sourGummy mt-12">
+        {{
+          filter === "all"
+            ? "No recipes yet. Add some!"
+            : "No favorite recipes yet. Add some!"
+        }}
+      </p>
+    </ng-template>
+  </div>
+  <ng-template #fetchLoadingOrError>
+    @if(isLoading()) {
+    <app-loading></app-loading>
+    } @else {
+    <p class="text-center text-2xl text-[#77726E] font-sourGummy mt-12">
+      Couldn't fetch recipes.
+    </p>
+    }
+  </ng-template>
+</div>
