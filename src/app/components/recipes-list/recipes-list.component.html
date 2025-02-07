@@ -45,12 +45,14 @@
 
   <!-- if there was error while fetching -->
   <ng-template #fetchLoadingOrError>
-    @if(isLoading()) {
-    <app-loading></app-loading>
-    } @else {
-    <p class="text-center text-2xl text-[#77726E] font-sourGummy mt-12">
-      Couldn't fetch recipes.
-    </p>
-    }
+    <div class="mx-auto">
+      @if(isLoading()) {
+      <app-loading></app-loading>
+      } @else {
+      <p class="text-center text-2xl text-[#77726E] font-sourGummy mt-12">
+        Couldn't fetch recipes.
+      </p>
+      }
+    </div>
   </ng-template>
 </div>
